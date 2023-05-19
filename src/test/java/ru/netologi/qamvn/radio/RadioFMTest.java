@@ -4,7 +4,39 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioFMTest {
+    @Test
+    public void SetSizeNextMaxChannelTest() { //тест конструктора с параметром диапазона каналлов
+        RadioFM rad = new RadioFM(20);
 
+        rad.setChannelRadio(19);
+        rad.nextChannelRadio();
+        int expected = 0;
+        int actual = rad.getChannelRadio();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void SetSizePrevChannelTest() { //тест конструктора с параметром диапазона каналлов
+        RadioFM rad = new RadioFM(20);
+
+        rad.setChannelRadio(19);
+        rad.prevChannelRadio();
+        int expected = 18;
+        int actual = rad.getChannelRadio();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void SetSizePrevMinChannelTest() { //тест конструктора с параметром диапазона каналлов
+        RadioFM rad = new RadioFM(20);
+
+        rad.setChannelRadio(0);
+        rad.prevChannelRadio();
+        int expected = 19;
+        int actual = rad.getChannelRadio();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    /////////////////////////////
     @Test
     public void NextChannel() {
         RadioFM rad = new RadioFM();
