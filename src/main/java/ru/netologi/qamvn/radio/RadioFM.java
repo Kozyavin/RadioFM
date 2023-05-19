@@ -3,9 +3,19 @@ package ru.netologi.qamvn.radio;
 public class RadioFM {
     private int channelRadio;
     private int volumeRadio;
+    private int maxChannelRadio;
+
+    public RadioFM() {
+        maxChannelRadio = 9;
+    }
+
+    public RadioFM(int size) {
+        maxChannelRadio = size - 1;
+    }
+
 
     public void nextChannelRadio() {
-        if (channelRadio != 9) {
+        if (channelRadio != maxChannelRadio) {
             channelRadio++;
         } else {
             channelRadio = 0;
@@ -16,7 +26,7 @@ public class RadioFM {
         if (channelRadio != 0) {
             channelRadio--;
         } else {
-            channelRadio = 9;
+            channelRadio = maxChannelRadio;
         }
     }
 
@@ -36,7 +46,6 @@ public class RadioFM {
         }
     }
 
-
     public int getChannelRadio() {
         return channelRadio;
     }
@@ -45,7 +54,7 @@ public class RadioFM {
         if (channelRadio < 0) {
             return;
         }
-        if (channelRadio > 9) {
+        if (channelRadio > maxChannelRadio) {
             return;
         }
         this.channelRadio = channelRadio;
